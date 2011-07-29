@@ -1,6 +1,6 @@
 CC := gcc
 CPU_ARCHITECTURE := pentium-m
-BINNAME := output
+BINNAME := gitparse
 INPUTFILES := main.c
 
 # Stuff we need
@@ -51,6 +51,8 @@ run:
 clean:
 	@$(RM) $(BINNAME)
 	@$(RM) *.plist
+install:
+	sudo mv $(BINNAME) /usr/bin/
 
 
 ## EXPERIMENTAL CLANG STUFF ##
