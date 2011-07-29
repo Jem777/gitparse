@@ -24,16 +24,17 @@ int main(int argc, char *argv[]){
   return 0;
 }
 
-void get_branch(void){
+void get_pending(void){
   FILE *fh = popen("git status", "r");
   int counter = 0;
   char line[128];
   while(fgets(line, sizeof(line), fh) != NULL){
-    counter++;
+    if(strstr(line, "modified:") != 0)
+      counter++;
   }
-  printf("read %d lines\n", counter);
+  printf("%d untracked\n", counter);
   pclose(fh);
 }
-void get_pending(void){
+void get_branch(void){
 
 }
